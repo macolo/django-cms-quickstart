@@ -208,3 +208,5 @@ MEDIA_ROOT = os.path.join('/data/media/')
 
 
 SITE_ID = 1
+
+DEBUG_PROPAGATE_EXCEPTIONS = True
