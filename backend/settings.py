@@ -128,9 +128,9 @@ CMS_TEMPLATES = [
     ('minimal.html', 'Minimal template'),
     ('whitenoise-static-files-demo.html', 'Static File Demo'),
 
-    # optional templates that extend base.html, to be used with Bootstrap 4
-    ('page.html', 'Page'),
-    ('feature.html', 'Page with Feature')
+    # optional templates that extend base.html, to be used with Bootstrap 5
+    ('page.html', 'Bootstrap 4 Demo'),
+    ('feature.html', 'Bootstrap 4 Demo with two placeholders')
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'

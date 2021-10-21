@@ -6,6 +6,8 @@ A Dockerised django CMS project, ready to deploy on [Divio](https://www.divio.co
 
 This version uses Python 3.8 running and the most up-to-date versions of Django 3.1 and django CMS 3.8.
 
+This project is endorsed by the [django CMS Association](https://www.django-cms.org/en/about-us/). That means that it is officially accepted by the dCA as being in line with our roadmap vision and development/plugin policy. Join us on [Slack](https://www.django-cms.org/slack/) for more information or questions. 
+
 ## Installation
 
 You need to have docker installed on your system to run this project.
@@ -18,9 +20,11 @@ You need to have docker installed on your system to run this project.
 ```bash
 git clone git@github.com:django-cms/django-cms-quickstart.git
 cd django-cms-quickstart
-docker compose up --force-recreate --build -d
+docker compose build web
+docker compose up -d database_default
 docker compose run web python manage.py migrate
 docker compose run web python manage.py createsuperuser
+docker compose up -d
 ```
 
 Then open http://django-cms-quickstart.127.0.0.1.nip.io:8000 (or just http://127.0.0.1:8000) in your browser.
@@ -34,6 +38,10 @@ these; they're optional. If you don't want to use them, read through the `settin
 see sections that can be removed - in each case, the section is noted with a comment containing the word 'optional'.
 
 Options are also available for using Postgres/MySQL, uWSGI/Gunicorn/Guvicorn, etc.
+
+#### Updating requirements
+
+The project uses a 2 step approach, freezing all dependencies with pip-tools. Read more about how to handle it here: https://blog.typodrive.com/2020/02/04/always-freeze-requirements-with-pip-compile-to-avoid-unpleasant-surprises/
 
 ## Features
 
@@ -62,5 +70,8 @@ Note that this is just a demo project to get you started. If you want a full pro
 #### Deployment Commands
 Configure your hosting environment to run the following commands on every deployment:
 - `./manage.py migrate`
-- `./manage.py collectstatic --noinput`
 
+
+#### Divio Deployment
+
+divio.com is a cloud hosting platform optimized for django web applications. It's the quickest way to deploy this project. Here is a [video tutorial](https://www.youtube.com/watch?v=O2g5Wfoyp7Q) and a [description of the deployment steps](https://github.com/django-cms/djangocms-template/blob/mco-standalone/docs/deployment-divio.md#divio-project-setup) that are mostly applicable for this quickstart project.
